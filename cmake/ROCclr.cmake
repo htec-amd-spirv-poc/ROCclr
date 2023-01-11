@@ -101,6 +101,8 @@ endif()
 target_compile_definitions(rocclr PUBLIC
   LITTLEENDIAN_CPU
   WITH_LIQUID_FLASH=0
+  WITH_COMPILER_LIB=1
+  WITH_LIGHTNING_COMPILER=0
   ${AMD_OPENCL_DEFS})
 
 target_include_directories(rocclr PUBLIC

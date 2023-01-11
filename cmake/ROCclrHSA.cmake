@@ -50,4 +50,4 @@ target_sources(rocclr PRIVATE
   ${ROCCLR_SRC_DIR}/device/rocm/rocvirtual.cpp
   ${ROCCLR_SRC_DIR}/device/rocm/rocurilocator.cpp)
 
-target_compile_definitions(rocclr PUBLIC WITH_HSA_DEVICE)
+target_compile_definitions(rocclr PUBLIC WITH_COMPILER_LIB=1 WITH_LIGHTNING_COMPILER=0 WITH_HSA_DEVICE)

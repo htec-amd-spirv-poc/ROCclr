@@ -270,6 +270,10 @@ class NullDevice : public amd::Device {
 #endif
 #endif
 
+#if defined(WITH_COMPILER_LIB)
+  Compiler* compiler() const { return nullptr; }
+#endif
+
  protected:
   //! Initialize compiler instance and handle
   static bool initCompiler(bool isOffline);

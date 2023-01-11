@@ -102,6 +102,18 @@ private:
   std::string codegenOptions(amd::option::Options* options);
 
   bool saveBinaryAndSetType(type_t type) override;
+
+#if defined(WITH_COMPILER_LIB)
+  const aclTargetInfo& info() {
+    acl_error err;
+    info_ = amd::Hsail::GetTargetInfo("spirv64",
+                                      device().isa().hsailName(), &err);
+    if (err != ACL_SUCCESS) {
+      LogWarning("aclGetTargetInfo failed");
+    }
+    return info_;
+  }
+#endif
 };
 
 class LightningProgram final : public roc::Program {
@@ -123,6 +135,17 @@ private:
   bool setKernels(void* binary, size_t binSize,
                   amd::Os::FileDesc fdesc = amd::Os::FDescInit(), size_t foffset = 0,
                   std::string uri = std::string()) override final;
+#if defined(WITH_COMPILER_LIB)
+const aclTargetInfo& info() {
+  acl_error err;
+  info_ = amd::Hsail::GetTargetInfo("spirv64",
+                                    device().isa().hsailName(), &err);
+  if (err != ACL_SUCCESS) {
+    LogWarning("aclGetTargetInfo failed");
+  }
+  return info_;
+}
+#endif
 };
 
 /*@}*/} // namespace roc

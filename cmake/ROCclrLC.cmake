@@ -25,7 +25,7 @@ find_package(amd_comgr REQUIRED CONFIG
     cmake/amd_comgr
     lib/cmake/amd_comgr)
 
-target_compile_definitions(rocclr PUBLIC WITH_LIGHTNING_COMPILER USE_COMGR_LIBRARY)
+target_compile_definitions(rocclr PUBLIC WITH_LIGHTNING_COMPILER=0 WITH_COMPILER_LIB=1 USE_COMGR_LIBRARY)
 if(BUILD_SHARED_LIBS)
   target_compile_definitions(rocclr PUBLIC COMGR_DYN_DLL)
 endif()

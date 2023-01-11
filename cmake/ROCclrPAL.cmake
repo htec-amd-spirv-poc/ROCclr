@@ -47,7 +47,6 @@ set(PAL_BUILD_GFX11         ON)
 set(PAL_BUILD_NAVI31        ON)
 set(PAL_BUILD_NAVI32        ON)
 set(PAL_BUILD_NAVI33        ON)
-set(PAL_BUILD_PHOENIX1      ON)
 
 find_package(AMD_PAL)
 find_package(AMD_HSA_LOADER)
@@ -57,6 +56,7 @@ target_sources(rocclr PRIVATE
   ${ROCCLR_SRC_DIR}/device/pal/palblit.cpp
   ${ROCCLR_SRC_DIR}/device/pal/palconstbuf.cpp
   ${ROCCLR_SRC_DIR}/device/pal/palcounters.cpp
+  ${ROCCLR_SRC_DIR}/device/pal/paldebugmanager.cpp
   ${ROCCLR_SRC_DIR}/device/pal/paldevice.cpp
   ${ROCCLR_SRC_DIR}/device/pal/paldeviced3d10.cpp
   ${ROCCLR_SRC_DIR}/device/pal/paldeviced3d11.cpp
